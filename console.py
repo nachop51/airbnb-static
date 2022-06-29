@@ -87,6 +87,13 @@ class HBNBCommand(cmd.Cmd):
         name and id by adding or updating attribute
         """
 
+        """execute nothing"""
+        pass
+
+    def do_help(self, line):
+        """Show helpfull messages"""
+        super().do_help(line)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
