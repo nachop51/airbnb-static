@@ -2,6 +2,7 @@
 """ Console module """
 import cmd
 from models import storage
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -80,19 +81,39 @@ class HBNBCommand(cmd.Cmd):
         if storage.all() is None or storage.all() == {}:
             print("[]")
         else:
-            print(storage.all())
+            values = [str(obj) for obj in storage.all().values()]
+            print(values)
+
+    def do_help(self, line):
+        """Show helpfull messages"""
+        super().do_help(line)
 
     def do_update(self, arg):
         """Updates an instance based on the class
         name and id by adding or updating attribute
         """
-
-        """execute nothing"""
-        pass
-
-    def do_help(self, line):
-        """Show helpfull messages"""
-        super().do_help(line)
+        if arg is None or arg == "":
+            print("** class name missing **")
+        else:
+            arg = shlex.split(arg)
+            if arg[0] not in storage.classes():
+                print("** class doesn't exist **")
+            elif len(arg) == 1 or arg[1] is None or arg[1] == "":
+                print("** instance id missing **")
+            elif len(arg) == 2 or arg[2] is None or arg[2] == "":
+                print("** attribute name missing **")
+            elif len(arg) == 3 or arg[3] is None or arg[3] == "":
+                print("** value missing **")
+            else:
+                key = arg[0] + "." + arg[1]
+                for a in arg:
+                    if a == a.strip('"'):
+                        arg[arg.index(a)] = a.strip('"')
+                if key in storage.all():
+                    setattr(storage.all()[key], arg[2], arg[3])
+                    storage.save()
+                else:
+                    print("** no instance found **")
 
 
 if __name__ == '__main__':
