@@ -43,7 +43,7 @@ class HBNBCommand(cmd.Cmd):
         if arg is None or arg == "":
             print("** class name missing **")
         else:
-            arg = arg.split()
+            arg = shlex.split(arg)
             if arg[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(arg) == 1 or arg[1] is None or arg[1] == "":
@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
         if arg is None or arg == "":
             print("** class name missing **")
         else:
-            arg = arg.split()
+            arg = shlex.split(arg)
             if arg[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(arg) == 1 or arg[1] is None or arg[1] == "":
@@ -81,8 +81,16 @@ class HBNBCommand(cmd.Cmd):
         if storage.all() is None or storage.all() == {}:
             print("[]")
         else:
+            arg = shlex.split(arg)
             values = [str(obj) for obj in storage.all().values()]
-            print(values)
+            if len(arg) == 0 or arg is None or arg == "":
+                print(values)
+            elif arg[0] not in storage.classes():
+                print("** class doesn't exist **")
+            else:
+                values = [str(obj) for obj in storage.all().values()
+                          if obj.__class__.__name__ == arg[0]]
+                print(values)
 
     def do_help(self, line):
         """Show helpfull messages"""
