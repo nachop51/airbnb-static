@@ -123,6 +123,30 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     print("** no instance found **")
 
+    def precmd(self, arg):
+        classname = arg.split('.')[0]
+        if classname in storage.classes() and '(' in arg and ')' == arg[-1]:
+            command = arg.split('.')[1].split('(')[0]
+            commands = ['all', 'count', 'show', 'destroy', 'update']
+            if command in commands:
+                if command == 'count':
+                    values = [str(obj) for obj in storage.all().values()
+                              if obj.__class__.__name__ == classname]
+                    print(len(values))
+                    return ""
+                elif command == 'show' or command == 'destroy':
+                    id = arg.split('.')[1].split('(')[1][:-1].strip('"')
+                    return f"{command} {classname} {id}"
+                elif command == 'update':
+                    args = arg.split('.')[1].split('(')[1][:-1]
+                    id = args.split(',')[0].strip('"')
+                    attr = args.split(',')[1].strip().strip('"')
+                    value = args.split(',')[2].strip().strip('"')
+                    print(f"{command} {classname} {id} {attr} {value}")
+                    return f"{command} {classname} {id} {attr} {value}"
+                return f"{command} {classname}"
+        return arg
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
