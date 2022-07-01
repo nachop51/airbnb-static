@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Console module """
 import cmd
+import json
 from models import storage
 import shlex
 
@@ -146,19 +147,15 @@ class HBNBCommand(cmd.Cmd):
                     id = args.split(',')[0].strip()[1:-1]
                     attr = "".join(args.split('{')[1:]).strip()
                     attr = '{' + attr
-                    print(attr)
                     if '{' in attr and '}' in attr:
-                        attribute = attr.split(':')[0][2:-1]
-                        value = attr.split(':')[1].split(',')[0][2:-1]
-                        # print(f"{classname} {id} {attribute} {value}")
-                        self.do_update(
-                            f"{classname} {id} {attribute} {value}")
+                        attr = json.loads(attr.replace('\'', '"'))
+                        for k, v in attr.items():
+                            self.do_update(f"{classname} {id} {k} {v}")
                         return ""
                     else:
                         attr = args.split(',')[1].strip()[1:-1]
                         value = args.split(',')[2].strip()[1:-1]
                         return f"{command} {classname} {id} {attr[1:-1]} {value}"
-                    # print(f"{command} {classname} {id} {attr} {value}")
                 return f"{command} {classname}"
         return arg
 
