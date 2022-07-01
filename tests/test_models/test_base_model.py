@@ -7,6 +7,8 @@ import unittest
 from models.base_model import BaseModel
 import pycodestyle
 from datetime import datetime
+from models.engine.file_storage import FileStorage
+from os import path
 
 class BaseModelTest(unittest.TestCase):
     """Test for BaseModel"""
@@ -30,7 +32,34 @@ class BaseModelTest(unittest.TestCase):
     def test_str(self):
         """test __str__ method"""
         my_baseModel = BaseModel()
-        self.assertEqual(f"[{type(my_baseModel).__name__}] ({my_baseModel.id}) {my_baseModel.__dict__}", str(my_baseModel))
+        self.assertEqual(f"[{type(my_baseModel).__name__}] ({my_baseModel.id}) {my_baseModel.__dict__}", 
+                str(my_baseModel))
+
+    def test_save(self):
+        """test save method"""
+        my_baseModel = BaseModel()
+        my_fileStorage = FileStorage()
+        update = my_baseModel.__dict__['updated_at']
+        my_baseModel.save()
+        self.assertTrue(path.isfile('file.json'))
+        self.assertNotEqual(my_baseModel.__dict__['updated_at'], update)
+        update = my_baseModel.__dict__['updated_at']
+        my_fileStorage.reload()
+        self.assertEqual(my_baseModel.__dict__['updated_at'], update)
+
+    def test_to_dict(self):
+        """test to_dict_method"""
+        my_baseModel = BaseModel()
+        self.assertEqual(my_baseModel.to_dict()["id"], my_baseModel.id)
+        self.assertEqual(my_baseModel.to_dict()["created_at"], my_baseModel.created_at.isoformat())
+        self.assertEqual(my_baseModel.to_dict()["updated_at"], my_baseModel.updated_at.isoformat())
+        self.assertEqual(my_baseModel.to_dict()['__class__'], my_baseModel.__class__.__name__)
+
+    def test_not_equal_id(self):
+        """test two instane ids"""
+        id_a = BaseModel()
+        id_b = BaseModel()
+        self.assertNotEqual(id_a.id, id_b.id)
 
 if __name__ == '__main__':
     unittest.main()
