@@ -20,5 +20,13 @@ class StateTest(unittest.TestCase):
             "Found code style errors"
         )
 
+    def test_subclass(self):
+        """test if State is subclass of BaseModel"""
+        self.assertTrue(issubclass(State, BaseModel))
+    
+    def test_attr(self):
+        """test atributte class"""
+        self.assertEqual(State.name, "")
+
 if __name__ == '__main__':
     unittest.main()

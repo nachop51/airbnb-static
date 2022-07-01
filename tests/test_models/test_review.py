@@ -20,5 +20,15 @@ class ReviewTest(unittest.TestCase):
             "Found code style errors"
         )
 
+    def test_subclass(self):
+        """test if Review is subclass of BaseModel"""
+        self.assertTrue(issubclass(Review, BaseModel))
+
+    def test_attr(self):
+        """test attributes class"""
+        self.assertEqual(Review.place_id, "")
+        self.assertEqual(Review.user_id, "")
+        self.assertEqual(Review.text, "")
+
 if __name__ == '__main__':
     unittest.main()
