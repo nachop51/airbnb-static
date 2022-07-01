@@ -28,5 +28,11 @@ class StateTest(unittest.TestCase):
         """test atributte class"""
         self.assertEqual(State.name, "")
 
+    def test_instance(self):
+        """test instance of class"""
+        my_state = State()
+        self.assertEqual(my_state.name, "")
+        self.assertTrue(isinstance(my_state, BaseModel))
+
 if __name__ == '__main__':
     unittest.main()

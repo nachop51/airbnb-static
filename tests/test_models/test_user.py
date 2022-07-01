@@ -31,5 +31,14 @@ class UserTest(unittest.TestCase):
         self.assertEqual(User.first_name, "")
         self.assertEqual(User.last_name, "")
 
+    def test_instance(self):
+        """test instance class"""
+        my_user = User()
+        self.assertEqual(my_user.email, "")
+        self.assertEqual(my_user.password, "")
+        self.assertEqual(my_user.first_name, "")
+        self.assertEqual(my_user.last_name, "")
+        self.assertTrue(isinstance(my_user, BaseModel))
+
 if __name__ == '__main__':
     unittest.main()
