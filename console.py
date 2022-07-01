@@ -118,6 +118,10 @@ class HBNBCommand(cmd.Cmd):
                     if a == a.strip('"'):
                         arg[arg.index(a)] = a.strip('"')
                 if key in storage.all():
+                    try:
+                        arg[3] = int(arg[3])
+                    except Exception:
+                        pass
                     setattr(storage.all()[key], arg[2], arg[3])
                     storage.save()
                 else:
