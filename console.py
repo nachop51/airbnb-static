@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Console module """
 import cmd
+import json
 from models import storage
 import shlex
 
@@ -118,10 +119,45 @@ class HBNBCommand(cmd.Cmd):
                     if a == a.strip('"'):
                         arg[arg.index(a)] = a.strip('"')
                 if key in storage.all():
+                    try:
+                        arg[3] = int(arg[3])
+                    except Exception:
+                        pass
                     setattr(storage.all()[key], arg[2], arg[3])
                     storage.save()
                 else:
                     print("** no instance found **")
+
+    def precmd(self, arg):
+        classname = arg.split('.')[0]
+        if classname in storage.classes() and '(' in arg and ')' == arg[-1]:
+            command = arg.split('.')[1].split('(')[0]
+            commands = ['all', 'count', 'show', 'destroy', 'update']
+            if command in commands:
+                if command == 'count':
+                    values = [str(obj) for obj in storage.all().values()
+                              if obj.__class__.__name__ == classname]
+                    print(len(values))
+                    return ""
+                elif command == 'show' or command == 'destroy':
+                    id = arg.split('.')[1].split('(')[1][1:-2]
+                    return f"{command} {classname} {id}"
+                elif command == 'update':
+                    args = arg.split('.')[1].split('(')[1][:-1]
+                    id = args.split(',')[0].strip()[1:-1]
+                    attr = "".join(args.split('{')[1:]).strip()
+                    attr = '{' + attr
+                    if '{' in attr and '}' in attr:
+                        attr = json.loads(attr.replace('\'', '"'))
+                        for k, v in attr.items():
+                            self.do_update(f"{classname} {id} {k} {v}")
+                        return ""
+                    else:
+                        a = args.split(',')[1].strip().strip('"')
+                        value = args.split(',')[2].strip().strip('"')
+                        return f"{command} {classname} {id} {a} {value}"
+                return f"{command} {classname}"
+        return arg
 
 
 if __name__ == '__main__':
