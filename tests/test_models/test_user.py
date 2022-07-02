@@ -8,6 +8,7 @@ from models.base_model import BaseModel
 from models.user import User
 import pycodestyle
 
+
 class UserTest(unittest.TestCase):
     """Test for User"""
 
@@ -39,6 +40,7 @@ class UserTest(unittest.TestCase):
         self.assertEqual(my_user.first_name, "")
         self.assertEqual(my_user.last_name, "")
         self.assertTrue(isinstance(my_user, BaseModel))
+
 
 if __name__ == '__main__':
     unittest.main()

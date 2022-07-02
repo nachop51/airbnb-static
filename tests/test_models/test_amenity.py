@@ -6,8 +6,8 @@
 import unittest
 from models.base_model import BaseModel
 from models.amenity import Amenity
-
 import pycodestyle
+
 
 class AmenityTest(unittest.TestCase):
     """Test for Amenity"""
@@ -34,6 +34,7 @@ class AmenityTest(unittest.TestCase):
         my_amenity = Amenity()
         self.assertEqual(my_amenity.name, "")
         self.assertTrue(isinstance(my_amenity, BaseModel))
+
 
 if __name__ == '__main__':
     unittest.main()
