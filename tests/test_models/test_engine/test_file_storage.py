@@ -49,6 +49,5 @@ class FileStorageTest(unittest.TestCase):
         self.assertIsNotNone(storageAll[key])
 
 
-
 if __name__ == "__main__":
     unittest.main()
