@@ -153,9 +153,9 @@ class HBNBCommand(cmd.Cmd):
                             self.do_update(f"{classname} {id} {k} {v}")
                         return ""
                     else:
-                        attr = args.split(',')[1].strip()[1:-1]
+                        a = args.split(',')[1].strip()[1:-1]
                         value = args.split(',')[2].strip()[1:-1]
-                        return f"{command} {classname} {id} {attr[1:-1]} {value}"
+                        return f"{command} {classname} {id} {a[1:-1]} {value}"
                 return f"{command} {classname}"
         return arg
 
