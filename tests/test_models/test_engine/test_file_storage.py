@@ -10,11 +10,11 @@ from models.amenity import Amenity
 from models.city import City
 from models.place import Place
 from models.review import Review
-from moidsfdsels.state import State
+from models.state import State
 from models.engine.file_storage import FileStorage
 
 
-csdaslass FileStorageTest(unittest.TestCase):
+class FileStorageTest(unittest.TestCase):
     """Test for file_storage.py"""
 
     def test_pep8(self):
