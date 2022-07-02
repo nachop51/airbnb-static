@@ -24,10 +24,24 @@ class FileStorageTest(unittest.TestCase):
         self.assertEqual(
             check.total_errors, 0, "Found style errors"
         )
+    
+    @classmethod
+    def setUpClass(self):
+        """set instance"""
+        self.myModel = BaseModel()
+        self.storage = FileStorage()
 
-    def test_docstring(self):
+    def test_doc_module(self):
+        """test doc module"""
+        self.assertGreater(len(FileStorage.__doc__), 1)
+
+    def test_doc_string(self):
         """test docstring"""
         self.assertIsNotNone(FileStorage.__doc__)
+
+    def test_doc_class(self):
+        """test doc class"""
+        self.assertGreater(len(FileStorage.__doc__), 1)
 
     def test_all(self):
         """Test all method"""
@@ -47,6 +61,21 @@ class FileStorageTest(unittest.TestCase):
         fileStorage.new(pool)
         key = pool.__class__.__name__ + "." + pool.id
         self.assertIsNotNone(storageAll[key])
+
+    def test_reload(self):
+        """test reload method"""
+        self.myModel.name = "MyModelTest"
+        self.myModel.number = 183
+        name = str(self.myModel.__class__.__name__)
+        key = name + "." + str(self.myModel.id)
+        self.myModel.save()
+        self.storage.reload()
+        objs = self.storage.all()
+        self.obj_reload = objs[key]
+        self.assertTrue(self.myModel.__dict__ == self.obj_reload.__dict__)
+        self.assertTrue(self.myModel is not self.obj_reload)
+        self.assertIsInstance(self.obj_reload, BaseModel)
+        self.assertTrue(self.storage.all(), "MyModelTest")
 
 
 if __name__ == "__main__":
