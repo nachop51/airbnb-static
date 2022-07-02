@@ -52,3 +52,22 @@ class ConsoleTest(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as input_t:
             HBNBCommand().onecmd("create Amenityzcv")
             self.assertEqual(input_t.getvalue(), "** class doesn't exist **\n")
+
+    def test_do_show(self):
+        """test do_show method"""
+        with patch('sys.stdout', new=StringIO()) as input_t:
+            HBNBCommand().onecmd("show")
+            self.assertEqual(input_t.getvalue(), "** class name missing **\n")
+        with patch('sys.stdout', new=StringIO()) as input_t:
+            HBNBCommand().onecmd("show Usertre")
+            self.assertEqual(input_t.getvalue(), "** class doesn't exist **\n")
+        with patch('sys.stdout', new=StringIO()) as input_t:
+            HBNBCommand().onecmd("show User")
+            self.assertEqual(input_t.getvalue(), "** instance id missing **\n")
+        with patch('sys.stdout', new=StringIO()) as input_t:
+            HBNBCommand().onecmd("show User 9")
+            self.assertEqual(input_t.getvalue(), "** no instance found **\n")
+
+
+if __name__ == "__main__":
+    unittest.main()
