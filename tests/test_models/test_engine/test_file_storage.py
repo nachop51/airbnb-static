@@ -24,7 +24,7 @@ class FileStorageTest(unittest.TestCase):
         self.assertEqual(
             check.total_errors, 0, "Found style errors"
         )
-    
+
     @classmethod
     def setUpClass(self):
         """set instance"""
