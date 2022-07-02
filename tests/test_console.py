@@ -15,6 +15,7 @@ from unittest.mock import patch
 from io import StringIO
 import os
 
+
 class ConsoleTest(unittest.TestCase):
     """Test for console.py"""
 
@@ -100,9 +101,10 @@ class ConsoleTest(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as input_t:
             HBNBCommand().onecmd("update User")
             self.assertEqual(input_t.getvalue(), "** instance id missing **\n")
-        with patch('sys.stdout', new=StringIO()) as input_t:
+        with patch('sys.stdout', new=StringIO()) as inpt:
             HBNBCommand().onecmd("update User 9")
-            self.assertEqual(input_t.getvalue(), "** attribute name missing **\n")
+            self.assertEqual(inpt.getvalue(), "** attribute name missing **\n")
+
 
 if __name__ == "__main__":
     unittest.main()
