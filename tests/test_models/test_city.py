@@ -36,5 +36,6 @@ class CityTest(unittest.TestCase):
         self.assertEqual(my_city.state_id, "")
         self.assertEqual(my_city.name, "")
 
+
 if __name__ == '__main__':
     unittest.main()

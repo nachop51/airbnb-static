@@ -8,6 +8,7 @@ from models.base_model import BaseModel
 from models.state import State
 import pycodestyle
 
+
 class StateTest(unittest.TestCase):
     """Test for State"""
 
@@ -23,7 +24,7 @@ class StateTest(unittest.TestCase):
     def test_subclass(self):
         """test if State is subclass of BaseModel"""
         self.assertTrue(issubclass(State, BaseModel))
-    
+
     def test_attr(self):
         """test atributte class"""
         self.assertEqual(State.name, "")
@@ -33,6 +34,7 @@ class StateTest(unittest.TestCase):
         my_state = State()
         self.assertEqual(my_state.name, "")
         self.assertTrue(isinstance(my_state, BaseModel))
+
 
 if __name__ == '__main__':
     unittest.main()

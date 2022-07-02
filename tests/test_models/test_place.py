@@ -8,6 +8,7 @@ from models.base_model import BaseModel
 from models.place import Place
 import pycodestyle
 
+
 class PlaceTest(unittest.TestCase):
     """Test for Place"""
 
@@ -53,6 +54,7 @@ class PlaceTest(unittest.TestCase):
         self.assertEqual(my_place.longitude, 0.0)
         self.assertEqual(my_place.amenity_ids, [])
         self.assertTrue(isinstance(my_place, BaseModel))
+
 
 if __name__ == '__main__':
     unittest.main()
