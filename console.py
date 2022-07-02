@@ -153,8 +153,8 @@ class HBNBCommand(cmd.Cmd):
                             self.do_update(f"{classname} {id} {k} {v}")
                         return ""
                     else:
-                        a = args.split(',')[1].strip().split('"')
-                        value = args.split(',')[2].strip().split('"')
+                        a = args.split(',')[1].strip().strip('"')
+                        value = args.split(',')[2].strip().strip('"')
                         return f"{command} {classname} {id} {a} {value}"
                 return f"{command} {classname}"
         return arg
