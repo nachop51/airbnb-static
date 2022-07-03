@@ -6,6 +6,7 @@
 import unittest
 import pycodestyle
 import json
+import models
 from models.base_model import BaseModel
 from models.amenity import Amenity
 from models.city import City
@@ -26,6 +27,10 @@ class FileStorageTest(unittest.TestCase):
         self.assertEqual(
             check.total_errors, 0, "Found style errors"
         )
+    
+    def test_classes(self):
+        """check the class is created"""
+        self.assertIsInstance(models.engine.file_storage.FileStorage(),models.engine.file_storage.FileStorage)
 
     @classmethod
     def setUpClass(self):
