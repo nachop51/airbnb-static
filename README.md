@@ -14,27 +14,27 @@ quit
 show
 update
 
-How to use
+## How to use
 
-Clone the repo
+### Clone the repo
 
-git clone https://github.com/Nachop51/holbertonschool-AirBnB_clone.git
+> git clone https://github.com/Nachop51/holbertonschool-AirBnB_clone.git
 
-Run the console
+### Run the console
 
 You can work with the console in interactive or non interactive mode
 
-Run Console in Interactive
-./console.py
+#### Run Console in Interactive
+> ./console.py
 Now you can see the prompt (hbnb), and can use the list of command.
 
-Non Interactive example
-echo "help" | ./console.py
+#### Non Interactive example
+> echo "help" | ./console.py
 This is a non interactive example, you can put the command plus pipe plus 
 ./console.py to execute
 
 Authors
-Nacho Peralta
-Alvaro Sabini
+**[**Nacho Peralta**](https://www.linkedin.com/in/ignacio-peralta-576a72226/)
+[**Alvaro Sabini**]**(https://www.linkedin.com/in/alvaro-sabini-saralegui-a6781971/)**
 
 
