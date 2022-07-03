@@ -31,6 +31,10 @@ class FileStorageTest(unittest.TestCase):
     def test_classes(self):
         """check the class is created"""
         self.assertIsInstance(models.engine.file_storage.FileStorage(),models.engine.file_storage.FileStorage)
+    
+    def test_attr(self):
+        """test are attributes"""
+        self.assertEqual(dict, type(self.storage.all()))
 
     @classmethod
     def setUpClass(self):
