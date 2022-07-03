@@ -81,7 +81,8 @@ class ConsoleTest(unittest.TestCase):
             HBNBCommand().onecmd("help create")
             self.assertEqual(
                 input_t.getvalue(),
-                "Creates a new instance of BaseModel, saves it, and prints the id\n"
+                "Creates a new instance of BaseModel, \
+saves it, and prints the id\n"
             )
 
     def test_do_create(self):
@@ -230,8 +231,7 @@ class ConsoleTest(unittest.TestCase):
             HBNBCommand().onecmd(f"show User {id}")
             key = f"User.{id}"
             self.assertTrue(
-                str(FileStorage._FileStorage__objects[key]),
-                "John"
+                "John" in str(FileStorage._FileStorage__objects[key])
             )
 
 
