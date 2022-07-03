@@ -26,10 +26,12 @@ You can work with the console in interactive or non interactive mode
 
 #### Run Console in Interactive
 > ./console.py
+
 Now you can see the prompt (hbnb), and can use the list of command.
 
 #### Non Interactive example
 > echo "help" | ./console.py
+
 This is a non interactive example, you can put the command plus pipe plus 
 ./console.py to execute
 
