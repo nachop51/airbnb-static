@@ -5,7 +5,6 @@ import json
 from models import storage
 import shlex
 
-
 class HBNBCommand(cmd.Cmd):
     """ Class for HBNB console """
     prompt = "(hbnb) "
