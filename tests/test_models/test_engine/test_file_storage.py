@@ -66,8 +66,6 @@ class FileStorageTest(unittest.TestCase):
 
     def test_reload(self):
         """test reload method"""
-        if not pl.Path("file.json").resolve().is_file():
-            return
         self.myModel.name = "MyModelTest"
         self.myModel.number = 183
         name = str(self.myModel.__class__.__name__)
@@ -80,6 +78,7 @@ class FileStorageTest(unittest.TestCase):
         self.assertTrue(self.myModel is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
         self.assertTrue(self.storage.all(), "MyModelTest")
+        self.assertIsNone(self.storage.reload())
 
 
 if __name__ == "__main__":
