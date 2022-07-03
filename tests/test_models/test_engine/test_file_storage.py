@@ -78,7 +78,6 @@ class FileStorageTest(unittest.TestCase):
         self.assertTrue(self.myModel is not self.obj_reload)
         self.assertIsInstance(self.obj_reload, BaseModel)
         self.assertTrue(self.storage.all(), "MyModelTest")
-        self.assertIsNone(self.storage.reload())
 
 
 if __name__ == "__main__":
