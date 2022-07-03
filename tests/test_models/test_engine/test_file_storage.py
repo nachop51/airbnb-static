@@ -66,18 +66,19 @@ class FileStorageTest(unittest.TestCase):
 
     def test_reload(self):
         """test reload method"""
-        self.myModel.name = "MyModelTest"
-        self.myModel.number = 183
-        name = str(self.myModel.__class__.__name__)
-        key = name + "." + str(self.myModel.id)
-        self.myModel.save()
-        self.storage.reload()
-        objs = self.storage.all()
-        self.obj_reload = objs[key]
-        self.assertTrue(self.myModel.__dict__ == self.obj_reload.__dict__)
-        self.assertTrue(self.myModel is not self.obj_reload)
-        self.assertIsInstance(self.obj_reload, BaseModel)
-        self.assertTrue(self.storage.all(), "MyModelTest")
+        if self.assertIsNotNone("file.json"):
+            self.myModel.name = "MyModelTest"
+            self.myModel.number = 183
+            name = str(self.myModel.__class__.__name__)
+            key = name + "." + str(self.myModel.id)
+            self.myModel.save()
+            self.storage.reload()
+            objs = self.storage.all()
+            self.obj_reload = objs[key]
+            self.assertTrue(self.myModel.__dict__ == self.obj_reload.__dict__)
+            self.assertTrue(self.myModel is not self.obj_reload)
+            self.assertIsInstance(self.obj_reload, BaseModel)
+            self.assertTrue(self.storage.all(), "MyModelTest")
 
 
 if __name__ == "__main__":
