@@ -11,23 +11,19 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     def do_quit(self, arg):
-        """Quit command to exit the program
-        """
+        """Quit command to exit the program"""
         return True
 
     def do_EOF(self, arg):
-        """Ends the program
-        """
+        """Ends the program"""
         return True
 
     def emptyline(self):
-        """In case of an empty line
-        """
+        """In case of an empty line"""
         pass
 
     def do_create(self, arg):
-        """Creates a new instance of BaseModel, saves it, and prints the id
-        """
+        """Creates a new instance of BaseModel, saves it, and prints the id"""
         if arg is None or arg == "":
             print("** class name missing **")
         elif arg not in storage.classes():
@@ -57,8 +53,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
 
     def do_destroy(self, arg):
-        """Deletes an instance based on the class name and id
-        """
+        """Deletes an instance based on the class name and id"""
         if arg is None or arg == "":
             print("** class name missing **")
         else:
