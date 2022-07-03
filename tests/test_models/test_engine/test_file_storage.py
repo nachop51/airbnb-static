@@ -36,6 +36,14 @@ class FileStorageTest(unittest.TestCase):
         """test are attributes"""
         self.assertEqual(dict, type(self.storage.all()))
 
+    def test_models(self):
+        """check if all is working"""
+        self.assertIsNotNone(models.storage.all())
+
+    def test_reload_method(self):
+        """check if reload working"""
+        self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
+
     @classmethod
     def setUpClass(self):
         """set instance"""
