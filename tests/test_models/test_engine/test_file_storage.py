@@ -2,6 +2,7 @@
 """
     Unittest for FileStorage
 """
+
 import unittest
 import pycodestyle
 import json
@@ -64,6 +65,7 @@ class FileStorageTest(unittest.TestCase):
 
     def test_reload(self):
         """test reload method"""
+        self.assertIs(self.storage.reload(), None)
         self.myModel.name = "MyModelTest"
         self.myModel.number = 183
         name = str(self.myModel.__class__.__name__)
