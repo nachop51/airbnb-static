@@ -86,7 +86,8 @@ AirBnB clone. Wich are this commands and what they do.
 ![update](https://user-images.githubusercontent.com/1056470/177069648-94514f95-d0da-47d8-a4cb-002e615d83a1.jpg)
 
 ## Authors
-**[**Nacho Peralta**](https://www.linkedin.com/in/ignacio-peralta-576a72226/)
-[**Alvaro Sabini**]**(https://www.linkedin.com/in/alvaro-sabini-saralegui-a6781971/)**
+[**Nacho Peralta**](https://www.linkedin.com/in/ignacio-peralta-576a72226/)
+
+[**Alvaro Sabini**](https://www.linkedin.com/in/alvaro-sabini-saralegui-a6781971/)
 
 
