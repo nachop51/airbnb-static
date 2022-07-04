@@ -62,6 +62,7 @@ AirBnB clone. Wich are this commands and what they do.
 ## Exmples of commands
 
 ### all
+![all](https://user-images.githubusercontent.com/1056470/177068498-4cb680cd-e161-45df-b591-c39079367bcf.jpg)
 
 ### count
 
