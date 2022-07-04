@@ -30,7 +30,8 @@ class FileStorageTest(unittest.TestCase):
     
     def test_classes(self):
         """check the class is created"""
-        self.assertIsInstance(models.engine.file_storage.FileStorage(),models.engine.file_storage.FileStorage)
+        self.assertIsInstance(models.engine.file_storage.FileStorage(),
+                models.engine.file_storage.FileStorage)
     
     def test_attr(self):
         """test are attributes"""
@@ -43,6 +44,21 @@ class FileStorageTest(unittest.TestCase):
     def test_reload_method(self):
         """check if reload working"""
         self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
+    
+    def setUp(self):
+        """check is empty"""
+        try:
+            remove('file.json')
+        except Exception:
+            pass
+        FileStorage._FileStorage__objects = {}
+
+    def tearDown(self):
+        """check remove class"""
+        try:
+            remove('file.json')
+        except Exception:
+            pass
 
     @classmethod
     def setUpClass(self):
