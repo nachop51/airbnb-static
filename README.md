@@ -65,19 +65,25 @@ AirBnB clone. Wich are this commands and what they do.
 ![all](https://user-images.githubusercontent.com/1056470/177068498-4cb680cd-e161-45df-b591-c39079367bcf.jpg)
 
 ### count
+![count](https://user-images.githubusercontent.com/1056470/177069531-71320b6b-c186-4702-b82c-638447ebfdff.jpg)
 
 ### create
+![create](https://user-images.githubusercontent.com/1056470/177069579-1ed649fc-18d2-4c4f-b422-55133106bf81.jpg)
 
 ### destroy
+![destroy](https://user-images.githubusercontent.com/1056470/177069604-421ca611-7ddc-4e7a-8bd5-ac12ae25d202.jpg)
 
 ### EOF
+![EOF](https://user-images.githubusercontent.com/1056470/177069618-4859c2d2-e1aa-478f-a1ed-72ec06359aff.jpg)
 
 ### quit
+![quit](https://user-images.githubusercontent.com/1056470/177069627-7aaafa27-8d88-4075-9dd7-a2d71589ce21.jpg)
 
 ### show
+![show](https://user-images.githubusercontent.com/1056470/177069641-7cd6751b-6461-463d-aaa3-190f2fcf2b20.jpg)
 
 ### update
-
+![update](https://user-images.githubusercontent.com/1056470/177069648-94514f95-d0da-47d8-a4cb-002e615d83a1.jpg)
 
 ## Authors
 **[**Nacho Peralta**](https://www.linkedin.com/in/ignacio-peralta-576a72226/)
