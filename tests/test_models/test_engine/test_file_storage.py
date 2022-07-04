@@ -45,21 +45,6 @@ class FileStorageTest(unittest.TestCase):
         """check if reload working"""
         self.assertIsNotNone(models.engine.file_storage.FileStorage().reload)
     
-    def setUp(self):
-        """check is empty"""
-        try:
-            remove('file.json')
-        except Exception:
-            pass
-        FileStorage._FileStorage__objects = {}
-
-    def tearDown(self):
-        """check remove class"""
-        try:
-            remove('file.json')
-        except Exception:
-            pass
-
     @classmethod
     def setUpClass(self):
         """set instance"""
