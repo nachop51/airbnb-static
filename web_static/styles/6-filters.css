@@ -63,7 +63,7 @@
   border-radius: 4px;
   list-style: none;
   padding: 30px 50px;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .popover li p {
@@ -79,6 +79,10 @@
 
 .popover li h2:first-child {
   margin-top: 0;
+}
+
+.locations .popover li:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .filters div:hover .popover {
