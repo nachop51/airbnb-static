@@ -43,7 +43,6 @@ class FileStorage:
             "Amenity": Amenity,
             "Place": Place,
             "Review": Review
-
         }
         return list_classes
 
